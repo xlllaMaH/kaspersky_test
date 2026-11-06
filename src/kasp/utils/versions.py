@@ -1,5 +1,9 @@
 """Разбор и сравнение версий программ."""
 
+import re
+
+VERSION_RE = re.compile(r"[0-9]+(\.[0-9]+)*")
+
 
 def parse(version: str) -> tuple[int, ...]:
     """
@@ -17,6 +21,8 @@ def parse(version: str) -> tuple[int, ...]:
     Исключения:
         ValueError: Если какая-то часть не является числом
     """
+    if not VERSION_RE.fullmatch(version):
+        raise ValueError(f"invalid version: {version!r}")
     parts = [int(p) for p in version.split(".")]
     while parts and parts[-1] == 0:
         parts.pop()

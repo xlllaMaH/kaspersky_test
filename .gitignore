@@ -13,8 +13,7 @@ dist/
 .coverage
 htmlcov/
 
-# Local databases
-*.db
+# Local databases (kasp.db is committed on purpose, so it can be inspected right away)
 *.sqlite
 *.sqlite3
 *.db-journal

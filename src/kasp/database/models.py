@@ -7,7 +7,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
 class Base(DeclarativeBase):
-    """Базовый класс ддя всех модулей"""
+    """Базовый класс для всех моделей"""
 
 
 class Product(Base):
@@ -34,9 +34,9 @@ class Version(Base):
 
 class Vulnerability(Base):
     """
-    Уязвимость продукта в диапозоне версий.
+    Уязвимость продукта в диапазоне версий.
 
-    Один KLA_id может описывать несколько диапозонов,
+    Один KLA_id может описывать несколько диапазонов,
     поэтому kla_id не может быть уникален сам по себе
     """
 

@@ -48,7 +48,7 @@ class VulnerabilityRecord(FeedRecord):
 
     @model_validator(mode="after")
     def _check_range(self) -> "VulnerabilityRecord":
-        """Проверка что уязвимая < пофикшенной версии"""
+        """Проверить, что первая уязвимая версия не больше исправленной."""
         if parse(self.start_version) > parse(self.fixed_version):
             raise ValueError(
                 "start_vuln_version must not be greater than fixed_version, "
